@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-// শুধু ডাক্তারদের ডাটা (প্রয়োজন অনুযায়ী নতুন ডাক্তার যোগ বা তথ্য এডিট করতে পারবেন)
+// শুধু ডাক্তারদের ডাটা
 const doctorsData = [
   {
     id: 1,
@@ -35,43 +35,61 @@ export default function Home() {
   const [selectedDoctor, setSelectedDoctor] = useState(null);
 
   return (
-    <div style={{ 
-      fontFamily: "'Segoe UI', Roboto, sans-serif", 
-      backgroundColor: "#f4f7fa", 
-      minHeight: "100vh", 
-      margin: 0, 
-      paddingBottom: "60px" 
-    }}>
-      
-      {/* মডার্ন গ্রেডিয়েন্ট হেডার */}
-      <header style={{ 
-        background: "linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)", 
-        color: "white", 
-        padding: "50px 20px", 
-        textAlign: "center", 
-        boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
-        borderBottom: "4px solid #00b4db"
-      }}>
-        <h1 style={{ margin: 0, fontSize: "36px", fontWeight: "700", letterSpacing: "1px" }}>
-          সমতা ডায়াগনস্টিক সেন্টার
-        </h1>
-        <p style={{ 
-          margin: "12px 0 0 0", 
-          opacity: 0.85, 
-          fontSize: "16px", 
-          fontWeight: "300",
-          color: "#00b4db" 
-        }}>
-          ডাক্তারদের লাইভ অবস্থান এবং চেম্বার শিডিউল
-        </p>
-      </header>
-
-      {/* মেইন কন্টেন্ট */}
-      <main style={{ maxWidth: "900px", margin: "40px auto", padding: "0 20px" }}>
-        
-        <div style={{ textAlign: "center", marginBottom: "30px" }}>
-          <h2 style={{ fontSize: "22px", color: "#1e293b", fontWeight: "600", margin: "0 0 8px 0" }}>
-            আজকের কর্তব্যরত ডাক্তারগণ
-          </h2>
-          <p style={{ margin: 0, color: "#64748b", fontSize: "14px" }}>
-            যেকোনো ডাক্তারের নামের ওপর ক্লিক করে তার
+    <div className="container">
+      {/* ইন্টারনাল মডার্ন সিএসএস ডিজাইন */}
+      <style jsx global>{`
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Segoe UI', Roboto, sans-serif;
+          background-color: #f4f7fa;
+          color: #333;
+        }
+        .header {
+          background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+          color: white;
+          padding: 50px 20px;
+          text-align: center;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+          border-bottom: 4px solid #00b4db;
+        }
+        .header h1 {
+          margin: 0;
+          font-size: 36px;
+          font-weight: 700;
+        }
+        .header p {
+          margin: 12px 0 0 0;
+          font-size: 16px;
+          color: #00b4db;
+        }
+        .main-content {
+          max-w: 900px;
+          max-width: 900px;
+          margin: 40px auto;
+          padding: 0 20px;
+        }
+        .title-area {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .title-area h2 {
+          font-size: 22px;
+          color: #1e293b;
+          margin: 0 0 8px 0;
+        }
+        .title-area p {
+          margin: 0;
+          color: #64748b;
+          font-size: 14px;
+        }
+        .grid-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 20px;
+        }
+        .card {
+          background-color: white;
+          padding: 24px;
+          border-radius: 16px;
+          box-shadow: 0 4px 6px rgba(0,0,
